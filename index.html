@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odin | Library</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Odin | Library</title>
+        <link rel="stylesheet" href="./resources/css/style.css">
+        <script src="./resources/js/index.js" defer></script>
+    </head>
+    <body>
+        <h1>My Library</h1>
+        <button class="btn modal-btn">New Book</button>
+        
+        <div class="modal-overlay">
+            <div class="modal-container">
+                <h3>New book details:</h3>
+                <form class="book-form">
+                    <label for="title"><strong>Title:</strong></label>
+                    <input type="text" id="title">
+                    <label for="author"><strong>Author:</strong></label>
+                    <input type="text" id="author">
+                    <label for="pages"><strong>Number of pages:</strong></label>
+                    <input type="text" id="pages"> 
+                    <label>
+                    <input type="checkbox" id="isRead"> Have you read this?
+                    </label>
+                    <button type="submit" class="submit-btn">add</button>
+                    <button class="close-btn">x<i class="fas fa-times"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="library"></div>
+    </body>
 </html>

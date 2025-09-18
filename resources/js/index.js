@@ -33,6 +33,21 @@ function displayLibrary() {
         `; 
 
         library.appendChild(bookCard); 
+
+        // Toggle Read Button
+        bookCard.querySelector('.toggle-read').addEventListener('click', () => {
+            book.isRead = !book.isRead;
+            displayLibrary();
+        });
+
+        // Remove Book Button
+        bookCard.querySelector('.remove-book').addEventListener('click', () => {
+            const index = myLibrary.findIndex(b => b.id === book.id);
+            if (index !== -1) {
+                myLibrary.splice(index, 1);
+                displayLibrary();
+            }
+        });
     }); 
 }
 
@@ -65,6 +80,23 @@ document.addEventListener('keydown', function (e) {
 
 
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("1984", "George Orwell", 328, false);
+
+const bookForm = document.querySelector(".book-form");
+bookForm.addEventListener("submit", addBook);
+
+
+function addBook(e) {
+    e.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pageNum = parseInt(document.getElementById("pages").value);
+    const isRead = document.getElementById("isRead").checked; // assumes checkbox with id="isRead"
+    if(title && author && !isNaN(pageNum)) {
+      addBookToLibrary(title, author, pageNum, isRead); 
+      displayLibrary();
+    }else{
+      alert("Please enter value", "danger");
+    }
+}
+
 displayLibrary();
