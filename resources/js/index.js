@@ -78,9 +78,6 @@ document.addEventListener('keydown', function (e) {
 });
 
 
-
-
-
 const bookForm = document.querySelector(".book-form");
 bookForm.addEventListener("submit", addBook);
 
@@ -92,10 +89,12 @@ function addBook(e) {
     const pageNum = parseInt(document.getElementById("pages").value);
     const isRead = document.getElementById("isRead").checked; // assumes checkbox with id="isRead"
     if(title && author && !isNaN(pageNum)) {
-      addBookToLibrary(title, author, pageNum, isRead); 
-      displayLibrary();
+        addBookToLibrary(title, author, pageNum, isRead); 
+        displayLibrary();
+        bookForm.reset(); 
+        modalOverlay.classList.remove("open-modal");
     }else{
-      alert("Please enter value", "danger");
+        alert("Please enter book details", "danger");
     }
 }
 
