@@ -123,6 +123,10 @@ button:hover {
   color: #c3a380;
 }
 
+.error-msg {
+  color: rgb(145, 0, 0);
+}
+
 /* Form Styles */
 .book-form {
   display: flex;
